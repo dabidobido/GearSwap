@@ -740,3 +740,8 @@ function initialize_packet_parsing()
         end
     end
 end
+
+parse.i[0x058] = function(data)
+	refresh_globals()
+	equip_sets('target_change', nil, data:unpack('I', 5), data:unpack('I', 9))
+end
